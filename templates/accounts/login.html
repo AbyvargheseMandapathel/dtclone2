@@ -1,0 +1,24 @@
+
+    
+                        {% include 'partials/_alert.html' %}
+                        <h1>Login To Your Account</h1>
+                        <p>Login To Your Account To Post Ad</p>
+                        <h2>Personal Information</h2>
+                        <form action="{% url 'accounts:login' %}" method="POST" novalidate>
+                            {% csrf_token %}
+                                <h4>{{login_form.username.label}}* :</h4>
+                           
+
+
+                                    {{login_form.username}}
+                                    <span style="color:red">{{login_form.username.errors.as_text}}</span>
+
+                                    <h4>{{login_form.password.label}}* :</h4>
+
+                                        {{login_form.password}}
+                                        <span style="color:red">{{login_form.password.errors.as_text}}</span>                           <input type="submit" value="Login">
+
+                                    <p>Register <a href="{% url 'accounts:register' %}">Register</a></p>
+                                     <p>Register <a href="{% url 'password_reset' %}">Forget Password</a></p>
+                        </form>
+                   
